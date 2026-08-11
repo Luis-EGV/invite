@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Quer sair comigo?</title>
+  <link rel="icon" type="image/png" href="titulo.png">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      font-family: "Segoe UI", Arial, sans-serif;
+
+      background-image: url("fundo.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      background: rgba(15, 8, 24, 0.35);
+
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+
+      width: min(90%, 560px);
+
+      padding: 50px 38px;
+
+      text-align: center;
+
+      background: rgba(22, 14, 34, 0.72);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.42);
+
+      color: white;
+    }
+
+    h1 {
+      font-size: clamp(31px, 5vw, 42px);
+
+      margin-bottom: 18px;
+
+      font-weight: 700;
+    }
+
+    .subtitulo {
+      font-size: 17px;
+
+      color: #e7dde9;
+
+      margin-bottom: 38px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 18px;
+
+      min-height: 60px;
+    }
+
+    button {
+      width: 170px;
+
+      padding: 16px 20px;
+
+      border: none;
+      border-radius: 999px;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      user-select: none;
+      -webkit-user-select: none;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #sim {
+      background:
+        linear-gradient(
+          90deg,
+          #ff6f7d,
+          #ee3d7a
+        );
+
+      color: white;
+
+      box-shadow:
+        0 12px 30px rgba(238, 61, 122, 0.28);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    #sim:hover {
+      transform:
+        translateY(-2px)
+        scale(1.03);
+
+      box-shadow:
+        0 16px 35px rgba(238, 61, 122, 0.38);
+    }
+
+    #nao {
+      background:
+        rgba(110, 73, 125, 0.68);
+
+      color: white;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+      transition:
+        left 0.45s ease,
+        top 0.45s ease;
+
+      z-index: 9999;
+    }
+
+    #dataEncontro {
+      display: none;
+    }
+
+    #dataEncontro h2 {
+      font-size:
+        clamp(28px, 5vw, 36px);
+
+      margin-bottom: 20px;
+    }
+
+    #dataEncontro p {
+      font-size: 17px;
+
+      line-height: 1.6;
+
+      color: #e7dde9;
+
+      margin-bottom: 28px;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      max-width: 420px;
+
+      padding: 16px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.22);
+
+      background:
+        rgba(10, 8, 18, 0.55);
+
+      color: white;
+
+      font-size: 17px;
+
+      outline: none;
+
+      margin-bottom: 20px;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+
+      cursor: pointer;
+    }
+
+    #confirmar {
+      width: 100%;
+      max-width: 360px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ef3f7b,
+          #ff6b6b
+        );
+
+      color: white;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    #confirmar:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 15px 30px rgba(239, 63, 123, 0.35);
+    }
+
+    #mensagemFinal {
+      display: none;
+
+      margin-top: 25px;
+
+      font-size: 23px;
+      font-weight: 600;
+
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+
+      .card {
+        width: calc(100% - 28px);
+
+        padding: 38px 20px;
+
+        border-radius: 20px;
+      }
+
+      .subtitulo {
+        font-size: 15px;
+
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        gap: 12px;
+      }
+
+      button {
+        width: 120px;
+
+        padding: 14px 12px;
+
+        font-size: 16px;
+      }
+
+      #dataEncontro p {
+        font-size: 15px;
+      }
+
+      input[type="date"] {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div id="convite">
+
+      <h1>
+        Quer sair comigo?
+      </h1>
+
+      <p class="subtitulo">
+        Pense bem antes de escolher...
+      </p>
+
+      <div class="buttons">
+
+        <button
+          type="button"
+          id="sim"
+        >
+          Sim
+        </button>
+
+        <button
+          type="button"
+          id="nao"
+        >
+          Não
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="dataEncontro">
+
+      <h2>
+        Então temos um encontro!
+      </h2>
+
+      <p>
+        Agora só precisamos decidir uma coisa.
+        <br>
+        Qual vai ser a data?
+      </p>
+
+      <input
+        type="date"
+        id="data"
+      >
+
+      <br>
+
+      <button
+        type="button"
+        id="confirmar"
+      >
+        Confirmar
+      </button>
+
+      <div id="mensagemFinal"></div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    const botaoNao =
+      document.getElementById("nao");
+
+    const botaoSim =
+      document.getElementById("sim");
+
+    const convite =
+      document.getElementById("convite");
+
+    const dataEncontro =
+      document.getElementById("dataEncontro");
+
+    const confirmar =
+      document.getElementById("confirmar");
+
+    const inputData =
+      document.getElementById("data");
+
+    const mensagemFinal =
+      document.getElementById("mensagemFinal");
+
+
+    let primeiraVez = true;
+
+
+    function moverBotaoNao() {
+
+      if (primeiraVez) {
+
+        const posicaoAtual =
+          botaoNao.getBoundingClientRect();
+
+
+        botaoNao.style.position =
+          "fixed";
+
+
+        botaoNao.style.left =
+          posicaoAtual.left + "px";
+
+
+        botaoNao.style.top =
+          posicaoAtual.top + "px";
+
+
+        botaoNao.style.margin =
+          "0";
+
+
+        botaoNao.style.zIndex =
+          "9999";
+
+
+        primeiraVez = false;
+
+
+        botaoNao.getBoundingClientRect();
+
+      }
+
+
+      const larguraTela =
+        window.visualViewport
+          ? window.visualViewport.width
+          : window.innerWidth;
+
+
+      const alturaTela =
+        window.visualViewport
+          ? window.visualViewport.height
+          : window.innerHeight;
+
+
+      const larguraBotao =
+        botaoNao.offsetWidth;
+
+
+      const alturaBotao =
+        botaoNao.offsetHeight;
+
+
+      const margem =
+        larguraTela <= 600
+          ? 18
+          : 30;
+
+
+      const maxX =
+        larguraTela -
+        larguraBotao -
+        margem;
+
+
+      const maxY =
+        alturaTela -
+        alturaBotao -
+        margem;
+
+
+      const novoX =
+        Math.random() *
+        (maxX - margem) +
+        margem;
+
+
+      const novoY =
+        Math.random() *
+        (maxY - margem) +
+        margem;
+
+
+      const xSeguro =
+        Math.min(
+          Math.max(novoX, margem),
+          maxX
+        );
+
+
+      const ySeguro =
+        Math.min(
+          Math.max(novoY, margem),
+          maxY
+        );
+
+
+      botaoNao.style.left =
+        xSeguro + "px";
+
+
+      botaoNao.style.top =
+        ySeguro + "px";
+
+    }
+
+
+    /* NO COMPUTADOR:
+       só muda quando clicar */
+
+    botaoNao.addEventListener(
+      "click",
+      function(event) {
+
+        event.preventDefault();
+
+        moverBotaoNao();
+
+      }
+    );
+
+
+    /* NO CELULAR:
+       muda quando tocar */
+
+    botaoNao.addEventListener(
+      "touchstart",
+      function(event) {
+
+        event.preventDefault();
+
+        moverBotaoNao();
+
+      },
+      {
+        passive: false
+      }
+    );
+
+
+    /* BOTÃO SIM */
+
+    botaoSim.addEventListener(
+      "click",
+      function() {
+
+        convite.style.display =
+          "none";
+
+
+        botaoNao.style.display =
+          "none";
+
+
+        dataEncontro.style.display =
+          "block";
+
+      }
+    );
+
+
+    /* CONFIRMAR DATA */
+
+    confirmar.addEventListener(
+      "click",
+      function() {
+
+        const data =
+          inputData.value;
+
+
+        if (data === "") {
+
+          alert(
+            "Escolha uma data primeiro 😅"
+          );
+
+          return;
+
+        }
+
+
+        const dataFormatada =
+          new Date(
+            data + "T00:00:00"
+          )
+          .toLocaleDateString(
+            "pt-BR"
+          );
+
+
+        inputData.style.display =
+          "none";
+
+
+        confirmar.style.display =
+          "none";
+
+
+        mensagemFinal.style.display =
+          "block";
+
+
+        mensagemFinal.innerHTML =
+          "Combinado! 🥰<br>" +
+          "Nosso encontro será dia " +
+          dataFormatada +
+          ".";
+
+      }
+    );
+
+
+    /* Caso a tela mude de tamanho,
+       mantém o NÃO dentro da tela */
+
+    window.addEventListener(
+      "resize",
+      function() {
+
+        if (primeiraVez) {
+          return;
+        }
+
+
+        const larguraTela =
+          window.innerWidth;
+
+
+        const alturaTela =
+          window.innerHeight;
+
+
+        const larguraBotao =
+          botaoNao.offsetWidth;
+
+
+        const alturaBotao =
+          botaoNao.offsetHeight;
+
+
+        const margem = 18;
+
+
+        let x =
+          parseFloat(
+            botaoNao.style.left
+          );
+
+
+        let y =
+          parseFloat(
+            botaoNao.style.top
+          );
+
+
+        x =
+          Math.min(
+            Math.max(x, margem),
+
+            larguraTela -
+            larguraBotao -
+            margem
+          );
+
+
+        y =
+          Math.min(
+            Math.max(y, margem),
+
+            alturaTela -
+            alturaBotao -
+            margem
+          );
+
+
+        botaoNao.style.left =
+          x + "px";
+
+
+        botaoNao.style.top =
+          y + "px";
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
