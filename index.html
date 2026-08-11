@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,7 +11,13 @@
   >
 
   <title>Quer sair comigo?</title>
-  <link rel="icon" type="image/png" href="titulo.png">
+
+  <!-- Ícone da aba do navegador -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="titulo.png"
+  >
 
   <style>
 
@@ -27,17 +34,25 @@
     }
 
     body {
+
       min-height: 100vh;
+      min-height: 100dvh;
 
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
 
       overflow: hidden;
 
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-      background-image: url("fundo.jpg");
+      /* IMAGEM DE FUNDO */
+      background-image:
+        url("fundo.jpg");
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -45,93 +60,173 @@
       position: relative;
     }
 
+
+    /* =========================
+       ESCURECIMENTO DO FUNDO
+       ========================= */
+
     body::before {
+
       content: "";
 
       position: fixed;
+
       inset: 0;
 
-      background: rgba(15, 8, 24, 0.35);
+      background:
+        rgba(15, 8, 24, 0.35);
 
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter:
+        blur(4px);
+
+      -webkit-backdrop-filter:
+        blur(4px);
 
       pointer-events: none;
 
       z-index: 0;
     }
 
+
+    /* =========================
+       CARD PRINCIPAL
+       ========================= */
+
     .card {
+
       position: relative;
+
       z-index: 10;
 
-      width: min(90%, 560px);
+      width:
+        min(90%, 560px);
 
-      padding: 50px 38px;
+      padding:
+        50px 38px;
 
       text-align: center;
 
-      background: rgba(22, 14, 34, 0.72);
+      color: white;
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background:
+        rgba(22, 14, 34, 0.72);
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter:
+        blur(18px);
 
-      border-radius: 24px;
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+      border-radius:
+        24px;
 
       box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.42);
-
-      color: white;
+        0 25px 70px
+        rgba(0,0,0,0.42);
     }
+
+
+    /* =========================
+       TÍTULOS
+       ========================= */
 
     h1 {
-      font-size: clamp(31px, 5vw, 42px);
 
-      margin-bottom: 18px;
+      font-size:
+        clamp(31px, 5vw, 42px);
 
-      font-weight: 700;
+      margin-bottom:
+        18px;
+
+      font-weight:
+        700;
     }
+
+
+    h2 {
+
+      font-size:
+        clamp(28px, 5vw, 36px);
+
+      margin-bottom:
+        20px;
+    }
+
 
     .subtitulo {
-      font-size: 17px;
 
-      color: #e7dde9;
+      font-size:
+        17px;
 
-      margin-bottom: 38px;
+      color:
+        #e7dde9;
+
+      margin-bottom:
+        38px;
     }
 
+
+    /* =========================
+       BOTÕES
+       ========================= */
+
     .buttons {
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
       gap: 18px;
 
-      min-height: 60px;
+      min-height:
+        60px;
     }
+
 
     button {
-      width: 170px;
 
-      padding: 16px 20px;
+      width:
+        170px;
 
-      border: none;
-      border-radius: 999px;
+      padding:
+        16px 20px;
 
-      font-size: 18px;
-      font-weight: 700;
+      border:
+        none;
 
-      cursor: pointer;
+      border-radius:
+        999px;
 
-      user-select: none;
-      -webkit-user-select: none;
+      font-size:
+        18px;
 
-      -webkit-tap-highlight-color: transparent;
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      user-select:
+        none;
+
+      -webkit-user-select:
+        none;
+
+      -webkit-tap-highlight-color:
+        transparent;
     }
 
+
+    /* BOTÃO SIM */
+
     #sim {
+
       background:
         linear-gradient(
           90deg,
@@ -139,94 +234,152 @@
           #ee3d7a
         );
 
-      color: white;
+      color:
+        white;
 
       box-shadow:
-        0 12px 30px rgba(238, 61, 122, 0.28);
+        0 12px 30px
+        rgba(238,61,122,0.28);
 
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
     }
 
+
     #sim:hover {
+
       transform:
         translateY(-2px)
         scale(1.03);
 
       box-shadow:
-        0 16px 35px rgba(238, 61, 122, 0.38);
+        0 16px 35px
+        rgba(238,61,122,0.38);
     }
 
-    #nao {
-      background:
-        rgba(110, 73, 125, 0.68);
 
-      color: white;
+    /* BOTÃO NÃO */
+
+    #nao {
+
+      background:
+        rgba(110,73,125,0.68);
+
+      color:
+        white;
 
       border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid
+        rgba(255,255,255,0.12);
 
       transition:
         left 0.45s ease,
         top 0.45s ease;
 
-      z-index: 9999;
+      z-index:
+        9999;
     }
+
+
+    /* =========================
+       TELA DA DATA
+       ========================= */
 
     #dataEncontro {
-      display: none;
+
+      display:
+        none;
     }
 
-    #dataEncontro h2 {
-      font-size:
-        clamp(28px, 5vw, 36px);
-
-      margin-bottom: 20px;
-    }
 
     #dataEncontro p {
-      font-size: 17px;
 
-      line-height: 1.6;
+      font-size:
+        17px;
 
-      color: #e7dde9;
+      line-height:
+        1.6;
 
-      margin-bottom: 28px;
+      color:
+        #e7dde9;
+
+      margin-bottom:
+        28px;
     }
+
+
+    #formData {
+
+      width:
+        100%;
+    }
+
+
+    /* CAMPO DE DATA */
 
     input[type="date"] {
-      width: 100%;
-      max-width: 420px;
 
-      padding: 16px;
+      width:
+        100%;
 
-      border-radius: 12px;
+      max-width:
+        420px;
+
+      padding:
+        16px;
+
+      border-radius:
+        12px;
 
       border:
-        1px solid rgba(255, 255, 255, 0.22);
+        1px solid
+        rgba(255,255,255,0.22);
 
       background:
-        rgba(10, 8, 18, 0.55);
+        rgba(10,8,18,0.55);
 
-      color: white;
+      color:
+        white;
 
-      font-size: 17px;
+      font-size:
+        17px;
 
-      outline: none;
+      outline:
+        none;
 
-      margin-bottom: 20px;
+      margin-bottom:
+        20px;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(1);
 
-      cursor: pointer;
+    input[type="date"]:focus {
+
+      border-color:
+        #ff6f7d;
     }
+
+
+    input[type="date"]
+    ::-webkit-calendar-picker-indicator {
+
+      filter:
+        invert(1);
+
+      cursor:
+        pointer;
+    }
+
+
+    /* BOTÃO CONFIRMAR */
 
     #confirmar {
-      width: 100%;
-      max-width: 360px;
+
+      width:
+        100%;
+
+      max-width:
+        360px;
 
       background:
         linear-gradient(
@@ -235,87 +388,185 @@
           #ff6b6b
         );
 
-      color: white;
+      color:
+        white;
 
       transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
     }
 
+
     #confirmar:hover {
+
       transform:
         translateY(-2px);
 
       box-shadow:
-        0 15px 30px rgba(239, 63, 123, 0.35);
+        0 15px 30px
+        rgba(239,63,123,0.35);
     }
+
+
+    #confirmar:disabled {
+
+      opacity:
+        0.65;
+
+      cursor:
+        default;
+
+      transform:
+        none;
+    }
+
+
+    /* =========================
+       MENSAGEM FINAL
+       ========================= */
 
     #mensagemFinal {
-      display: none;
 
-      margin-top: 25px;
+      display:
+        none;
 
-      font-size: 23px;
-      font-weight: 600;
+      margin-top:
+        20px;
 
-      line-height: 1.5;
+      font-size:
+        23px;
+
+      font-weight:
+        600;
+
+      line-height:
+        1.5;
     }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 600px) {
 
-      .card {
-        width: calc(100% - 28px);
+      body {
 
-        padding: 38px 20px;
-
-        border-radius: 20px;
+        background-position:
+          center center;
       }
+
+
+      .card {
+
+        width:
+          calc(100% - 28px);
+
+        padding:
+          38px 20px;
+
+        border-radius:
+          20px;
+      }
+
+
+      h1 {
+
+        font-size:
+          31px;
+      }
+
+
+      h2 {
+
+        font-size:
+          28px;
+      }
+
 
       .subtitulo {
-        font-size: 15px;
 
-        margin-bottom: 30px;
+        font-size:
+          15px;
+
+        margin-bottom:
+          30px;
       }
+
 
       .buttons {
-        gap: 12px;
+
+        gap:
+          12px;
       }
+
 
       button {
-        width: 120px;
 
-        padding: 14px 12px;
+        width:
+          120px;
 
-        font-size: 16px;
+        padding:
+          14px 12px;
+
+        font-size:
+          16px;
       }
+
 
       #dataEncontro p {
-        font-size: 15px;
+
+        font-size:
+          15px;
       }
 
+
       input[type="date"] {
-        font-size: 16px;
+
+        font-size:
+          16px;
       }
+
+
+      #mensagemFinal {
+
+        font-size:
+          20px;
+      }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
+
   <main class="card">
 
+
+    <!-- =========================
+         PRIMEIRA TELA
+         ========================= -->
+
     <div id="convite">
+
 
       <h1>
         Quer sair comigo?
       </h1>
 
+
       <p class="subtitulo">
         Pense bem antes de escolher...
       </p>
 
+
       <div class="buttons">
+
 
         <button
           type="button"
@@ -324,6 +575,7 @@
           Sim
         </button>
 
+
         <button
           type="button"
           id="nao"
@@ -331,16 +583,25 @@
           Não
         </button>
 
+
       </div>
+
 
     </div>
 
 
+
+    <!-- =========================
+         SEGUNDA TELA
+         ========================= -->
+
     <div id="dataEncontro">
+
 
       <h2>
         Então temos um encontro!
       </h2>
+
 
       <p>
         Agora só precisamos decidir uma coisa.
@@ -348,60 +609,125 @@
         Qual vai ser a data?
       </p>
 
-      <input
-        type="date"
-        id="data"
+
+
+      <!-- =========================
+           FORMSPREE
+           ========================= -->
+
+      <form
+        id="formData"
+        action="https://formspree.io/f/mzeprdpz"
+        method="POST"
       >
 
-      <br>
 
-      <button
-        type="button"
-        id="confirmar"
-      >
-        Confirmar
-      </button>
+        <input
+          type="date"
+          id="data"
+          name="Data do encontro"
+          required
+        >
 
-      <div id="mensagemFinal"></div>
+
+        <br>
+
+
+        <button
+          type="submit"
+          id="confirmar"
+        >
+          Confirmar
+        </button>
+
+
+      </form>
+
+
+
+      <div
+        id="mensagemFinal"
+      ></div>
+
 
     </div>
+
 
   </main>
 
 
+
   <script>
+
+
+    /* =========================
+       ELEMENTOS
+       ========================= */
+
 
     const botaoNao =
       document.getElementById("nao");
 
+
     const botaoSim =
       document.getElementById("sim");
+
 
     const convite =
       document.getElementById("convite");
 
+
     const dataEncontro =
       document.getElementById("dataEncontro");
+
+
+    const formulario =
+      document.getElementById("formData");
+
 
     const confirmar =
       document.getElementById("confirmar");
 
+
     const inputData =
       document.getElementById("data");
 
+
     const mensagemFinal =
-      document.getElementById("mensagemFinal");
+      document.getElementById(
+        "mensagemFinal"
+      );
 
 
-    let primeiraVez = true;
+
+    /* =========================
+       BOTÃO NÃO
+       ========================= */
+
+
+    let primeiraVez =
+      true;
+
 
 
     function moverBotaoNao() {
 
+
+      /*
+        Na primeira vez,
+        transforma o botão em
+        position fixed mantendo
+        inicialmente a posição
+        em que ele estava.
+      */
+
+
       if (primeiraVez) {
 
+
         const posicaoAtual =
-          botaoNao.getBoundingClientRect();
+          botaoNao
+            .getBoundingClientRect();
 
 
         botaoNao.style.position =
@@ -424,12 +750,21 @@
           "9999";
 
 
-        primeiraVez = false;
+        primeiraVez =
+          false;
 
 
-        botaoNao.getBoundingClientRect();
+        botaoNao
+          .getBoundingClientRect();
 
       }
+
+
+
+      /*
+        Usa visualViewport no celular
+        quando disponível.
+      */
 
 
       const larguraTela =
@@ -444,6 +779,7 @@
           : window.innerHeight;
 
 
+
       const larguraBotao =
         botaoNao.offsetWidth;
 
@@ -452,48 +788,82 @@
         botaoNao.offsetHeight;
 
 
+
+      /*
+        Margem para impedir que
+        o botão saia da tela.
+      */
+
+
       const margem =
         larguraTela <= 600
           ? 18
           : 30;
 
 
+
       const maxX =
-        larguraTela -
-        larguraBotao -
-        margem;
+        larguraTela
+        - larguraBotao
+        - margem;
 
 
       const maxY =
-        alturaTela -
-        alturaBotao -
-        margem;
+        alturaTela
+        - alturaBotao
+        - margem;
+
+
+
+      /*
+        Nova posição aleatória.
+      */
 
 
       const novoX =
-        Math.random() *
-        (maxX - margem) +
-        margem;
+        Math.random()
+        * Math.max(
+            maxX - margem,
+            1
+          )
+        + margem;
 
 
       const novoY =
-        Math.random() *
-        (maxY - margem) +
-        margem;
+        Math.random()
+        * Math.max(
+            maxY - margem,
+            1
+          )
+        + margem;
+
+
+
+      /*
+        Garante que continue
+        dentro da tela.
+      */
 
 
       const xSeguro =
         Math.min(
-          Math.max(novoX, margem),
+          Math.max(
+            novoX,
+            margem
+          ),
           maxX
         );
 
 
       const ySeguro =
         Math.min(
-          Math.max(novoY, margem),
+          Math.max(
+            novoY,
+            margem
+          ),
           maxY
         );
+
 
 
       botaoNao.style.left =
@@ -506,44 +876,62 @@
     }
 
 
-    /* NO COMPUTADOR:
-       só muda quando clicar */
+
+    /* =========================
+       COMPUTADOR
+       ========================= */
+
 
     botaoNao.addEventListener(
       "click",
       function(event) {
 
+
         event.preventDefault();
 
+
         moverBotaoNao();
+
 
       }
     );
 
 
-    /* NO CELULAR:
-       muda quando tocar */
+
+    /* =========================
+       CELULAR
+       ========================= */
+
 
     botaoNao.addEventListener(
       "touchstart",
       function(event) {
 
+
         event.preventDefault();
+
 
         moverBotaoNao();
 
+
       },
       {
-        passive: false
+        passive:
+          false
       }
     );
 
 
-    /* BOTÃO SIM */
+
+    /* =========================
+       BOTÃO SIM
+       ========================= */
+
 
     botaoSim.addEventListener(
       "click",
       function() {
+
 
         convite.style.display =
           "none";
@@ -556,72 +944,218 @@
         dataEncontro.style.display =
           "block";
 
+
       }
     );
 
 
-    /* CONFIRMAR DATA */
 
-    confirmar.addEventListener(
-      "click",
-      function() {
+    /* =========================
+       ENVIAR DATA
+       ========================= */
+
+
+    formulario.addEventListener(
+      "submit",
+      async function(event) {
+
+
+        /*
+          Impede o Formspree
+          de abrir outra página.
+        */
+
+
+        event.preventDefault();
+
+
 
         const data =
           inputData.value;
 
 
+
+        /*
+          Verifica se uma data
+          foi escolhida.
+        */
+
+
         if (data === "") {
+
 
           alert(
             "Escolha uma data primeiro 😅"
           );
 
+
           return;
 
         }
 
 
-        const dataFormatada =
-          new Date(
-            data + "T00:00:00"
-          )
-          .toLocaleDateString(
-            "pt-BR"
+
+        /*
+          Evita vários cliques.
+        */
+
+
+        confirmar.disabled =
+          true;
+
+
+        confirmar.innerText =
+          "Confirmando...";
+
+
+
+        try {
+
+
+          /*
+            Envia a data para
+            o Formspree.
+          */
+
+
+          const resposta =
+            await fetch(
+              formulario.action,
+              {
+
+                method:
+                  "POST",
+
+
+                body:
+                  new FormData(
+                    formulario
+                  ),
+
+
+                headers: {
+
+                  "Accept":
+                    "application/json"
+
+                }
+
+              }
+            );
+
+
+
+          /*
+            ENVIO REALIZADO
+          */
+
+
+          if (resposta.ok) {
+
+
+            const dataFormatada =
+              new Date(
+                data +
+                "T00:00:00"
+              )
+              .toLocaleDateString(
+                "pt-BR"
+              );
+
+
+
+            formulario.style.display =
+              "none";
+
+
+
+            mensagemFinal.style.display =
+              "block";
+
+
+
+            mensagemFinal.innerHTML =
+              "Combinado! 🥰<br>" +
+              "Nosso encontro será dia " +
+              dataFormatada +
+              ".";
+
+
+          }
+
+
+          /*
+            ERRO DO FORMSPREE
+          */
+
+
+          else {
+
+
+            confirmar.disabled =
+              false;
+
+
+            confirmar.innerText =
+              "Confirmar";
+
+
+            alert(
+              "Não foi possível confirmar a data. Tente novamente."
+            );
+
+
+          }
+
+
+        }
+
+
+        /*
+          ERRO DE INTERNET
+        */
+
+
+        catch (erro) {
+
+
+          confirmar.disabled =
+            false;
+
+
+          confirmar.innerText =
+            "Confirmar";
+
+
+          alert(
+            "Erro ao enviar a data. Verifique sua conexão e tente novamente."
           );
 
 
-        inputData.style.display =
-          "none";
+        }
 
-
-        confirmar.style.display =
-          "none";
-
-
-        mensagemFinal.style.display =
-          "block";
-
-
-        mensagemFinal.innerHTML =
-          "Combinado! 🥰<br>" +
-          "Nosso encontro será dia " +
-          dataFormatada +
-          ".";
 
       }
     );
 
 
-    /* Caso a tela mude de tamanho,
-       mantém o NÃO dentro da tela */
+
+    /* =========================
+       MANTER O NÃO NA TELA
+       ========================= */
+
 
     window.addEventListener(
       "resize",
       function() {
 
+
         if (primeiraVez) {
+
           return;
+
         }
+
 
 
         const larguraTela =
@@ -640,7 +1174,9 @@
           botaoNao.offsetHeight;
 
 
-        const margem = 18;
+        const margem =
+          18;
+
 
 
         let x =
@@ -655,24 +1191,37 @@
           );
 
 
+
         x =
           Math.min(
-            Math.max(x, margem),
 
-            larguraTela -
-            larguraBotao -
-            margem
+            Math.max(
+              x,
+              margem
+            ),
+
+            larguraTela
+            - larguraBotao
+            - margem
+
           );
+
 
 
         y =
           Math.min(
-            Math.max(y, margem),
 
-            alturaTela -
-            alturaBotao -
-            margem
+            Math.max(
+              y,
+              margem
+            ),
+
+            alturaTela
+            - alturaBotao
+            - margem
+
           );
+
 
 
         botaoNao.style.left =
@@ -682,10 +1231,13 @@
         botaoNao.style.top =
           y + "px";
 
+
       }
     );
 
+
   </script>
+
 
 </body>
 
