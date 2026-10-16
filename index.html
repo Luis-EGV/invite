@@ -34,16 +34,12 @@
     }
 
     body {
-
       min-height: 100vh;
       min-height: 100dvh;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       overflow: hidden;
-
       font-family:
         "Segoe UI",
         Arial,
@@ -52,11 +48,9 @@
       /* IMAGEM DE FUNDO */
       background-image:
         url("fundo.jpg");
-
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       position: relative;
     }
 
@@ -66,24 +60,16 @@
        ========================= */
 
     body::before {
-
       content: "";
-
       position: fixed;
-
       inset: 0;
-
       background:
         rgba(15, 8, 24, 0.35);
-
       backdrop-filter:
         blur(4px);
-
       -webkit-backdrop-filter:
         blur(4px);
-
       pointer-events: none;
-
       z-index: 0;
     }
 
@@ -93,37 +79,25 @@
        ========================= */
 
     .card {
-
       position: relative;
-
       z-index: 10;
-
       width:
         min(90%, 560px);
-
       padding:
         50px 38px;
-
       text-align: center;
-
       color: white;
-
       background:
         rgba(22, 14, 34, 0.72);
-
       backdrop-filter:
         blur(18px);
-
       -webkit-backdrop-filter:
         blur(18px);
-
       border:
         1px solid
         rgba(255,255,255,0.14);
-
       border-radius:
         24px;
-
       box-shadow:
         0 25px 70px
         rgba(0,0,0,0.42);
@@ -135,36 +109,28 @@
        ========================= */
 
     h1 {
-
       font-size:
         clamp(31px, 5vw, 42px);
-
       margin-bottom:
         18px;
-
       font-weight:
         700;
     }
 
 
     h2 {
-
       font-size:
         clamp(28px, 5vw, 36px);
-
       margin-bottom:
         20px;
     }
 
 
     .subtitulo {
-
       font-size:
         17px;
-
       color:
         #e7dde9;
-
       margin-bottom:
         38px;
     }
@@ -175,49 +141,34 @@
        ========================= */
 
     .buttons {
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       gap: 18px;
-
       min-height:
         60px;
     }
-
 
     button {
 
       width:
         170px;
-
       padding:
         16px 20px;
-
       border:
         none;
-
       border-radius:
         999px;
-
       font-size:
         18px;
-
       font-weight:
         700;
-
       cursor:
         pointer;
-
       user-select:
         none;
-
       -webkit-user-select:
         none;
-
       -webkit-tap-highlight-color:
         transparent;
     }
@@ -226,21 +177,17 @@
     /* BOTÃO SIM */
 
     #sim {
-
       background:
         linear-gradient(
           90deg,
           #ff6f7d,
           #ee3d7a
         );
-
       color:
         white;
-
       box-shadow:
         0 12px 30px
         rgba(238,61,122,0.28);
-
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
@@ -248,11 +195,9 @@
 
 
     #sim:hover {
-
       transform:
         translateY(-2px)
         scale(1.03);
-
       box-shadow:
         0 16px 35px
         rgba(238,61,122,0.38);
@@ -262,21 +207,16 @@
     /* BOTÃO NÃO */
 
     #nao {
-
       background:
         rgba(110,73,125,0.68);
-
       color:
         white;
-
       border:
         1px solid
         rgba(255,255,255,0.12);
-
       transition:
         left 0.45s ease,
         top 0.45s ease;
-
       z-index:
         9999;
     }
@@ -287,30 +227,23 @@
        ========================= */
 
     #dataEncontro {
-
       display:
         none;
     }
 
 
     #dataEncontro p {
-
       font-size:
         17px;
-
       line-height:
         1.6;
-
       color:
         #e7dde9;
-
       margin-bottom:
         28px;
     }
-
-
+    
     #formData {
-
       width:
         100%;
     }
@@ -322,101 +255,73 @@
 
       width:
         100%;
-
       max-width:
         420px;
-
       padding:
         16px;
-
       border-radius:
         12px;
-
       border:
         1px solid
         rgba(255,255,255,0.22);
-
       background:
         rgba(10,8,18,0.55);
-
       color:
         white;
-
       font-size:
         17px;
-
       outline:
         none;
-
       margin-bottom:
         20px;
     }
 
-
     input[type="date"]:focus {
-
       border-color:
         #ff6f7d;
     }
 
-
-    input[type="date"]
-    ::-webkit-calendar-picker-indicator {
-
-      filter:
-        invert(1);
-
-      cursor:
-        pointer;
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 1;
     }
-
 
     /* BOTÃO CONFIRMAR */
 
     #confirmar {
-
       width:
         100%;
-
       max-width:
         360px;
-
       background:
         linear-gradient(
           90deg,
           #ef3f7b,
           #ff6b6b
         );
-
+      
       color:
         white;
-
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
         opacity 0.25s ease;
     }
 
-
     #confirmar:hover {
-
       transform:
         translateY(-2px);
-
       box-shadow:
         0 15px 30px
         rgba(239,63,123,0.35);
     }
 
-
     #confirmar:disabled {
-
       opacity:
         0.65;
-
       cursor:
         default;
-
       transform:
         none;
     }
@@ -430,16 +335,12 @@
 
       display:
         none;
-
       margin-top:
         20px;
-
       font-size:
         23px;
-
       font-weight:
         600;
-
       line-height:
         1.5;
     }
@@ -450,46 +351,35 @@
        ========================= */
 
     @media (max-width: 600px) {
-
       body {
-
         background-position:
           center center;
       }
 
 
       .card {
-
         width:
           calc(100% - 28px);
-
         padding:
           38px 20px;
-
         border-radius:
           20px;
       }
 
 
       h1 {
-
         font-size:
           31px;
       }
 
-
       h2 {
-
         font-size:
           28px;
       }
 
-
       .subtitulo {
-
         font-size:
           15px;
-
         margin-bottom:
           30px;
       }
@@ -503,34 +393,25 @@
 
 
       button {
-
         width:
           120px;
-
         padding:
           14px 12px;
-
         font-size:
           16px;
       }
 
-
       #dataEncontro p {
-
         font-size:
           15px;
       }
 
-
       input[type="date"] {
-
         font-size:
           16px;
       }
-
-
+      
       #mensagemFinal {
-
         font-size:
           20px;
       }
@@ -554,19 +435,15 @@
 
     <div id="convite">
 
-
       <h1>
         Quer sair comigo?
       </h1>
-
 
       <p class="subtitulo">
         Pense bem antes de escolher...
       </p>
 
-
       <div class="buttons">
-
 
         <button
           type="button"
@@ -574,7 +451,6 @@
         >
           Sim
         </button>
-
 
         <button
           type="button"
@@ -589,8 +465,6 @@
 
     </div>
 
-
-
     <!-- =========================
          SEGUNDA TELA
          ========================= -->
@@ -601,7 +475,6 @@
       <h2>
         Então temos um encontro!
       </h2>
-
 
       <p>
         Agora só precisamos decidir uma coisa.
@@ -626,6 +499,7 @@
           type="date"
           id="data"
           name="Data do encontro"
+          onclick="if (this.showPicker) this.showPicker()"
           required
         >
 
@@ -642,7 +516,6 @@
 
 
       </form>
-
 
 
       <div
@@ -664,54 +537,33 @@
        ELEMENTOS
        ========================= */
 
-
     const botaoNao =
       document.getElementById("nao");
-
-
     const botaoSim =
       document.getElementById("sim");
-
-
     const convite =
       document.getElementById("convite");
-
-
     const dataEncontro =
       document.getElementById("dataEncontro");
-
-
     const formulario =
       document.getElementById("formData");
-
-
     const confirmar =
       document.getElementById("confirmar");
-
-
     const inputData =
       document.getElementById("data");
-
-
     const mensagemFinal =
       document.getElementById(
         "mensagemFinal"
       );
 
-
-
     /* =========================
        BOTÃO NÃO
        ========================= */
 
-
     let primeiraVez =
       true;
 
-
-
     function moverBotaoNao() {
-
 
       /*
         Na primeira vez,
@@ -721,105 +573,64 @@
         em que ele estava.
       */
 
-
       if (primeiraVez) {
-
 
         const posicaoAtual =
           botaoNao
             .getBoundingClientRect();
-
-
         botaoNao.style.position =
           "fixed";
-
-
         botaoNao.style.left =
           posicaoAtual.left + "px";
-
-
         botaoNao.style.top =
           posicaoAtual.top + "px";
-
-
         botaoNao.style.margin =
           "0";
-
-
         botaoNao.style.zIndex =
           "9999";
-
-
         primeiraVez =
           false;
-
-
         botaoNao
           .getBoundingClientRect();
-
       }
-
-
 
       /*
         Usa visualViewport no celular
         quando disponível.
       */
-
-
       const larguraTela =
         window.visualViewport
           ? window.visualViewport.width
           : window.innerWidth;
-
-
       const alturaTela =
         window.visualViewport
           ? window.visualViewport.height
           : window.innerHeight;
-
-
-
       const larguraBotao =
         botaoNao.offsetWidth;
-
-
       const alturaBotao =
         botaoNao.offsetHeight;
-
-
 
       /*
         Margem para impedir que
         o botão saia da tela.
       */
-
-
       const margem =
         larguraTela <= 600
           ? 18
           : 30;
-
-
-
       const maxX =
         larguraTela
         - larguraBotao
         - margem;
-
-
       const maxY =
         alturaTela
         - alturaBotao
         - margem;
 
-
-
       /*
         Nova posição aleatória.
       */
-
-
       const novoX =
         Math.random()
         * Math.max(
@@ -827,8 +638,6 @@
             1
           )
         + margem;
-
-
       const novoY =
         Math.random()
         * Math.max(
@@ -837,14 +646,10 @@
           )
         + margem;
 
-
-
       /*
         Garante que continue
         dentro da tela.
       */
-
-
       const xSeguro =
         Math.min(
           Math.max(
@@ -853,7 +658,6 @@
           ),
           maxX
         );
-
 
       const ySeguro =
         Math.min(
@@ -864,56 +668,32 @@
           maxY
         );
 
-
-
       botaoNao.style.left =
         xSeguro + "px";
 
-
       botaoNao.style.top =
         ySeguro + "px";
-
     }
-
-
-
+    
     /* =========================
        COMPUTADOR
        ========================= */
-
-
     botaoNao.addEventListener(
       "click",
       function(event) {
-
-
         event.preventDefault();
-
-
         moverBotaoNao();
-
-
       }
     );
-
-
 
     /* =========================
        CELULAR
        ========================= */
-
-
     botaoNao.addEventListener(
       "touchstart",
       function(event) {
-
-
         event.preventDefault();
-
-
         moverBotaoNao();
-
-
       },
       {
         passive:
@@ -921,138 +701,84 @@
       }
     );
 
-
-
     /* =========================
        BOTÃO SIM
        ========================= */
-
-
     botaoSim.addEventListener(
       "click",
       function() {
 
-
         convite.style.display =
           "none";
-
 
         botaoNao.style.display =
           "none";
 
-
         dataEncontro.style.display =
           "block";
-
-
       }
     );
-
-
-
     /* =========================
        ENVIAR DATA
        ========================= */
-
-
     formulario.addEventListener(
       "submit",
       async function(event) {
-
-
         /*
           Impede o Formspree
           de abrir outra página.
         */
-
-
         event.preventDefault();
-
-
-
+        
         const data =
           inputData.value;
-
-
-
+        
         /*
           Verifica se uma data
           foi escolhida.
         */
-
-
         if (data === "") {
-
-
           alert(
             "Escolha uma data primeiro 😅"
           );
-
-
           return;
 
         }
 
-
-
         /*
           Evita vários cliques.
         */
-
-
         confirmar.disabled =
           true;
-
 
         confirmar.innerText =
           "Confirmando...";
 
-
-
         try {
-
-
           /*
             Envia a data para
             o Formspree.
           */
-
-
           const resposta =
             await fetch(
               formulario.action,
               {
-
                 method:
                   "POST",
-
-
                 body:
                   new FormData(
                     formulario
                   ),
-
-
                 headers: {
-
                   "Accept":
                     "application/json"
-
                 }
-
               }
             );
-
-
-
           /*
             ENVIO REALIZADO
           */
-
-
           if (resposta.ok) {
-
-
             const dataFormatada =
               new Date(
                 data +
@@ -1062,79 +788,49 @@
                 "pt-BR"
               );
 
-
-
             formulario.style.display =
               "none";
 
-
-
             mensagemFinal.style.display =
               "block";
-
-
 
             mensagemFinal.innerHTML =
               "Combinado! 🥰<br>" +
               "Nosso encontro será dia " +
               dataFormatada +
               ".";
-
-
           }
-
-
           /*
             ERRO DO FORMSPREE
           */
-
-
           else {
-
 
             confirmar.disabled =
               false;
 
-
             confirmar.innerText =
               "Confirmar";
-
 
             alert(
               "Não foi possível confirmar a data. Tente novamente."
             );
-
-
           }
-
-
         }
-
-
         /*
           ERRO DE INTERNET
         */
-
-
         catch (erro) {
-
 
           confirmar.disabled =
             false;
 
-
           confirmar.innerText =
             "Confirmar";
-
 
           alert(
             "Erro ao enviar a data. Verifique sua conexão e tente novamente."
           );
-
-
         }
-
-
       }
     );
 
@@ -1148,42 +844,30 @@
     window.addEventListener(
       "resize",
       function() {
-
-
         if (primeiraVez) {
-
           return;
 
         }
 
-
-
         const larguraTela =
           window.innerWidth;
-
 
         const alturaTela =
           window.innerHeight;
 
-
         const larguraBotao =
           botaoNao.offsetWidth;
-
 
         const alturaBotao =
           botaoNao.offsetHeight;
 
-
         const margem =
           18;
-
-
 
         let x =
           parseFloat(
             botaoNao.style.left
           );
-
 
         let y =
           parseFloat(
@@ -1194,39 +878,30 @@
 
         x =
           Math.min(
-
             Math.max(
               x,
               margem
             ),
-
             larguraTela
             - larguraBotao
             - margem
-
           );
 
 
 
         y =
           Math.min(
-
             Math.max(
               y,
               margem
             ),
-
             alturaTela
             - alturaBotao
             - margem
-
           );
-
-
 
         botaoNao.style.left =
           x + "px";
-
 
         botaoNao.style.top =
           y + "px";
@@ -1237,7 +912,6 @@
 
 
   </script>
-
 
 </body>
 
